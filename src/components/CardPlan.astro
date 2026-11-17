@@ -1,11 +1,12 @@
 ---
+import SiterealRichText from './sitereal/RichText.astro';
 interface Props {
   image?: string;
   title?: string;
   description?: string;
   features?: string;
 }
-const { image = "https://xcloud.host/_landing/pricing/pricing-xcloud.png", title = "PXpace Hosting", description = "Fully managed hosting for dynamic, high-traffic sites, with automated daily backups and easy scaling built to deliver high-performance websites.", features = "Fully managed server setup\nOptimized hosting stack\nDaily automated backups\nFree SSL and renewal\nSupport from expert engineers" } = Astro.props;
+const { image = "https://xcloud.host/_landing/pricing/pricing-xcloud.png", title = "PXpace Hosting", description = "Fully managed hosting for dynamic, high-traffic sites, with automated daily backups and easy scaling built to deliver high-performance websites.", features = "<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Fully managed server setup</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Optimized hosting stack</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Daily automated backups</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free SSL and renewal</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Support from expert engineers</li>" } = Astro.props;
 ---
 <article class="w-card-plan" builder-data-element="div">
   <div class="w-card-plan__media" builder-data-element="div">
@@ -17,14 +18,7 @@ const { image = "https://xcloud.host/_landing/pricing/pricing-xcloud.png", title
         <h3 class="w-card-plan__title" builder-data-element="heading">{title}</h3>
         <p class="w-card-plan__description" builder-data-element="text">{description}</p>
       </div>
-      <ul class="w-card-plan__features" builder-data-element="list">
-        {((String(features ?? '').split('\n').map((line) => line.trim()).filter(Boolean) ?? []) as any[]).map((feature) => (
-          <li class="w-card-plan__feature" builder-data-element="text">
-            <svg class="w-card-plan__check" builder-data-element="svg" aria-hidden="true" viewBox="0 0 16 16"><path d="M3.33 8l3.33 3.33 6.67-6.66" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.33"></path></svg>
-            <span class="w-card-plan__feature-text" builder-data-element="span">{feature}</span>
-          </li>
-        ))}
-      </ul>
+      <ul class="w-card-plan__features" builder-data-element="rich-text"><SiterealRichText html={features} /></ul>
     </div>
     <slot />
   </div>

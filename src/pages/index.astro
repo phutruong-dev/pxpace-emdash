@@ -27,20 +27,6 @@ import '../styles/generated/framework.css';
 import '../styles/generated/global.css';
 import '../styles/generated/templates/tpl-mwj2rj4d-1.css';
 import '../styles/generated/pages/index.css';
-import { emdashSectionTexts } from "../data/sources/emdash-section-texts.js";
-import { emdashPlans } from "../data/sources/emdash-plans.js";
-import { emdashTestimonials } from "../data/sources/emdash-testimonials.js";
-let emdashsectiontextsEntries: Record<string, any>[] = [...(await emdashSectionTexts())];
-emdashsectiontextsEntries = emdashsectiontextsEntries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.slug ?? e.slug)) === "plans");
-emdashsectiontextsEntries = emdashsectiontextsEntries.slice(0, 1);
-let emdashplans2Entries: Record<string, any>[] = [...(await emdashPlans())];
-emdashplans2Entries = emdashplans2Entries.slice().sort((a, b) => 1 * ((x, y) => typeof x === 'number' && typeof y === 'number' ? x - y : ((x) => x instanceof Date ? x.toISOString() : String(x ?? ''))(x).localeCompare(((x) => x instanceof Date ? x.toISOString() : String(x ?? ''))(y)))((a.data?.position ?? a.position), (b.data?.position ?? b.position)));
-let emdashtestimonials3Entries: Record<string, any>[] = [...(await emdashTestimonials())];
-emdashtestimonials3Entries = emdashtestimonials3Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "1");
-let emdashtestimonials4Entries: Record<string, any>[] = [...(await emdashTestimonials())];
-emdashtestimonials4Entries = emdashtestimonials4Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "2");
-let emdashtestimonials5Entries: Record<string, any>[] = [...(await emdashTestimonials())];
-emdashtestimonials5Entries = emdashtestimonials5Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "3");
 ---
 <Base title="Home" siteName="PXpace" lang="en">
   <Fragment slot="head">
@@ -130,28 +116,19 @@ emdashtestimonials5Entries = emdashtestimonials5Entries.filter((e) => ((x) => x 
     <section class="w-plans" builder-data-element="section" data-surface="default" data-brx="section">
       <div class="w-plans__container" builder-data-element="container" data-animate="" data-brx="container">
         <header class="w-plans__head" builder-data-element="flex" data-brx="block">
-          {emdashsectiontextsEntries.map((item) => (
-            <>
-              <h2 class="w-heading-xl" builder-data-element="heading">{item.title}</h2>
-              <p class="w-text-m" builder-data-element="text">{item.intro}</p>
-            </>
-          ))}
+          <h2 class="w-heading-xl" builder-data-element="heading">Choose How You Want To Host</h2>
+          <p class="w-text-m" builder-data-element="text">From small startups to enterprises, PXpace is built to support your growth. Choose the plan that suits you best with affordable plans and pricing.</p>
         </header>
         <div class="w-plans__cards" builder-data-element="div" data-brx="div">
-          {emdashplans2Entries.map((item) => (
-            <CardPlan image={item.image} title={item.title} description={item.description} features={item.features}>
-              {(Boolean(item.featured)) && (
-                <>
-                  <ButtonPrimary link={item.button_link} variant="w-button-primary--block" label={item.button_label} />
-                </>
-              )}
-              {(!item.featured) && (
-                <>
-                  <ButtonOutline link={item.button_link} variant="w-button-outline--block" label={item.button_label} showIcon />
-                </>
-              )}
-            </CardPlan>
-          ))}
+          <CardPlan image="https://xcloud.host/_landing/pricing/pricing-xcloud.png" title="PXpace Hosting" description="Fully managed hosting for dynamic, high-traffic sites, with automated daily backups and easy scaling built to deliver high-performance websites." features={"<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Fully managed server setup</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Optimized hosting stack</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Daily automated backups</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free SSL and renewal</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Support from expert engineers</li>"}>
+            <ButtonPrimary link="#" variant="w-button-primary--block" label="View the Plans" />
+          </CardPlan>
+          <CardPlan image="https://xcloud.host/_landing/pricing/pricing-selfmanaged.png" title="Self-Managed Hosting" description="Bring your own server and connect it to the PXpace panel for easier server management, with every feature you need available under a single, unified dashboard." features={"<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Bring your own server, manage it from one dashboard</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free: 1 server and 10 sites included</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Connect any VPS to the PXpace panel</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Every feature under one dashboard</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Unlimited apps and databases</li>"}>
+            <ButtonOutline link="#" variant="w-button-outline--block" label="Connect Your Own Server" showIcon />
+          </CardPlan>
+          <CardPlan image="https://xcloud.host/_landing/pricing/pricing-managedbilling.png" title="Reseller Hosting" description="Sell hosting under your own brand. Resell on PXpace servers or bring your own, with full white-label control, built-in client management, and billing handled for you." features={"<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Resell on PXpace servers or your own</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>100% white-label — your domain and logo</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Built-in client and account management</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Create custom packages and set your prices</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Automated billing and invoicing</li>"}>
+            <ButtonOutline link="#" variant="w-button-outline--block" label="Start Reselling" showIcon />
+          </CardPlan>
         </div>
       </div>
     </section>
@@ -508,23 +485,35 @@ emdashtestimonials5Entries = emdashtestimonials5Entries.filter((e) => ((x) => x 
         <div class="w-testimonials__wall" builder-data-element="div" data-brx="div">
           <div class="w-testimonials__column" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track" builder-data-element="div" data-marquee="vertical">
-              {emdashtestimonials3Entries.map((item) => (
-                <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
-              ))}
+              <CardTestimonial quote="I've tried many paid platforms and the platform that works best for WordPress is SpinupWP and I believe that PXpace can reach and surpass that development, its roadmap is promising.
+
+Congratulations to the PXpace team, I hope they become the leading platform in the segment." avatar="https://xcloud.host/_landing/testimonials/brian.webp" name="Brian Geovanny" />
+              <CardTestimonial quote="I've been with runcloud for the last 3 years. However, after trying PXpace for the last month, I'm switching over. They are on a roll with their setup." avatar="https://xcloud.host/_landing/testimonials/pineda.webp" name="Kevin Pineda" />
+              <CardTestimonial quote="There are no team mates nor API limits with PXpace!
+
+#PXpace #wordpress #hosting" avatar="https://xcloud.host/_landing/testimonials/leo.webp" name="Leo Koo" />
+              <CardTestimonial quote="How Cloud Nine Web Elevated Client Experience While Streamlining Hosting Operations using PXpace" avatar="https://xcloud.host/_landing/testimonials/ed.webp" name="Ed Ellingham" />
             </div>
           </div>
           <div class="w-testimonials__column w-testimonials__column--middle" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track w-testimonials__track--reverse" builder-data-element="div" data-marquee="vertical">
-              {emdashtestimonials4Entries.map((item) => (
-                <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
-              ))}
+              <CardTestimonial quote="So far my experience has been smooth like silk. I didn't imagine that configuring and managing a VPS would be so easy. As of today, I have deployed 8 sites.
+
+I'm sure that within a few months, PXpace will become the leader in its segment." avatar="https://xcloud.host/_landing/testimonials/massimo.webp" name="Massimo Villa" />
+              <CardTestimonial quote="Came from cloudways then to runcloud then to PXpace. Looks like I'm staying here." avatar="https://xcloud.host/_landing/testimonials/gerson.webp" name="Gerson El" />
+              <CardTestimonial quote="I've recently taken all of my Vultr-hosted sites and gotten rid of cPanel for them to substitute it with PXpace.
+
+I have to say, I'm really impressed with PXpace so far!" avatar="https://xcloud.host/_landing/testimonials/tony.webp" name="Tony Lewis" />
+              <CardTestimonial quote="I came from Cloudways and won't go back. Highly impressed with PXpace. Glad I gave them a chance." avatar="https://xcloud.host/_landing/testimonials/dan.webp" name="Dan Spinoza" />
             </div>
           </div>
           <div class="w-testimonials__column w-testimonials__column--last" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track w-testimonials__track--slow" builder-data-element="div" data-marquee="vertical">
-              {emdashtestimonials5Entries.map((item) => (
-                <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
-              ))}
+              <CardTestimonial quote="Successful migrated 5 sites on a single server. PXpace migration tool worked great." avatar="https://xcloud.host/_landing/testimonials/rahil.webp" name="Rahil Maknojia" />
+              <CardTestimonial quote="Came from runcloud. Tried PXpace and never came back." avatar="https://xcloud.host/_landing/testimonials/fanega.webp" name="Karl Fanega" />
+              <CardTestimonial quote="How Advanced Web Strategies Saved Over $2,000 & Recovered 56 Hours per Month Managing 70+ Client Websites" avatar="https://xcloud.host/_landing/testimonials/gary.webp" name="Gary Moody" />
+              <CardTestimonial quote="PXpace gave me what no other hosting platform could: the flexibility of a VPS with the convenience of managed WordPress." avatar="https://xcloud.host/_landing/testimonials/jorge.webp" name="Jorge de los Reyes Martínez" />
+              <CardTestimonial quote="I use Server Avatar and PXpace and I'll sooner use PXpace than Server Avatar personally." avatar="https://xcloud.host/_landing/testimonials/pagano.webp" name="Jay Pagano" />
             </div>
           </div>
         </div>
