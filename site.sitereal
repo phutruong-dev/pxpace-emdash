@@ -11068,8 +11068,9 @@
         },
         {
           "name": "features",
-          "type": "richtext",
-          "value": "<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Fully managed server setup</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Optimized hosting stack</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Daily automated backups</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free SSL and renewal</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Support from expert engineers</li>"
+          "type": "text",
+          "value": "Fully managed server setup\nOptimized hosting stack\nDaily automated backups\nFree SSL and renewal\nSupport from expert engineers",
+          "label": "Features (one per line)"
         }
       ],
       "root": [
@@ -11160,11 +11161,70 @@
                         "w-card-plan__features"
                       ],
                       "attrs": {
-                        "builder-data-element": "rich-text"
+                        "builder-data-element": "list"
                       },
                       "name": "features",
                       "id": "ul-mwj427gn-6251",
-                      "html": "{props.features}"
+                      "children": [
+                        {
+                          "id": "loop-mwk8k2yj-732",
+                          "tag": "loop",
+                          "attrs": {
+                            "builder-data-element": "loop"
+                          },
+                          "children": [
+                            {
+                              "tag": "li",
+                              "classes": [
+                                "w-card-plan__feature"
+                              ],
+                              "children": [
+                                {
+                                  "tag": "svg",
+                                  "classes": [
+                                    "w-card-plan__check"
+                                  ],
+                                  "attrs": {
+                                    "builder-data-element": "svg",
+                                    "aria-hidden": "true",
+                                    "viewBox": "0 0 16 16"
+                                  },
+                                  "html": "<path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path>",
+                                  "name": "check",
+                                  "id": "svg-mwk8kaj5-734"
+                                },
+                                {
+                                  "tag": "span",
+                                  "classes": [
+                                    "w-card-plan__feature-text"
+                                  ],
+                                  "text": "{feature}",
+                                  "attrs": {
+                                    "builder-data-element": "span"
+                                  },
+                                  "name": "feature text",
+                                  "id": "span-mwk8kaj5-735"
+                                }
+                              ],
+                              "attrs": {
+                                "builder-data-element": "text"
+                              },
+                              "name": "feature",
+                              "id": "li-mwk8kaj5-733"
+                            }
+                          ],
+                          "loop": {
+                            "source": "custom",
+                            "custom": "String(props.features ?? '').split('\\n').map((line) => line.trim()).filter(Boolean)",
+                            "itemName": "feature",
+                            "sortDir": null,
+                            "collection": null
+                          },
+                          "classes": [
+                            "w-card-plan__feature-loop"
+                          ]
+                        }
+                      ]
                     }
                   ],
                   "attrs": {
@@ -14877,6 +14937,240 @@
           "quote": "text",
           "avatar": "image",
           "column": "integer"
+        },
+        "taxonomies": []
+      }
+    },
+    {
+      "id": "srcplans",
+      "name": "Hosting plans",
+      "slug": "emdash-plans",
+      "kind": "emdash",
+      "url": "https://pxpace-cms.manhphutruong.workers.dev/",
+      "cmsType": "plans",
+      "auth": "bearer",
+      "secretVar": "EMDASH_TOKEN",
+      "offline": "cache",
+      "fields": [
+        {
+          "key": "title",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "type": "text"
+        },
+        {
+          "key": "image",
+          "type": "image"
+        },
+        {
+          "key": "image_alt",
+          "type": "text"
+        },
+        {
+          "key": "image_width",
+          "type": "number"
+        },
+        {
+          "key": "image_height",
+          "type": "number"
+        },
+        {
+          "key": "features",
+          "type": "text"
+        },
+        {
+          "key": "button_label",
+          "type": "text"
+        },
+        {
+          "key": "button_link",
+          "type": "text"
+        },
+        {
+          "key": "featured",
+          "type": "boolean"
+        },
+        {
+          "key": "position",
+          "type": "number"
+        },
+        {
+          "key": "id",
+          "type": "text"
+        },
+        {
+          "key": "slug",
+          "type": "text"
+        },
+        {
+          "key": "publishedAt",
+          "type": "date"
+        },
+        {
+          "key": "updatedAt",
+          "type": "date"
+        },
+        {
+          "key": "createdAt",
+          "type": "date"
+        },
+        {
+          "key": "author",
+          "type": "text"
+        },
+        {
+          "key": "author_slug",
+          "type": "text"
+        },
+        {
+          "key": "author_bio",
+          "type": "text"
+        },
+        {
+          "key": "authors",
+          "type": "list"
+        },
+        {
+          "key": "locale",
+          "type": "text"
+        },
+        {
+          "key": "translationGroup",
+          "type": "text"
+        },
+        {
+          "key": "meta_title",
+          "type": "text"
+        },
+        {
+          "key": "meta_description",
+          "type": "text"
+        },
+        {
+          "key": "meta_image",
+          "type": "image"
+        },
+        {
+          "key": "publishedAt_text",
+          "type": "text"
+        },
+        {
+          "key": "updatedAt_text",
+          "type": "text"
+        },
+        {
+          "key": "createdAt_text",
+          "type": "text"
+        }
+      ],
+      "cmsSchema": {
+        "fields": {
+          "title": "string",
+          "description": "text",
+          "image": "image",
+          "features": "text",
+          "button_label": "string",
+          "button_link": "string",
+          "featured": "boolean",
+          "position": "integer"
+        },
+        "taxonomies": []
+      }
+    },
+    {
+      "id": "srcsectiontexts",
+      "name": "Section texts",
+      "slug": "emdash-section-texts",
+      "kind": "emdash",
+      "url": "https://pxpace-cms.manhphutruong.workers.dev/",
+      "cmsType": "section_texts",
+      "auth": "bearer",
+      "secretVar": "EMDASH_TOKEN",
+      "offline": "cache",
+      "fields": [
+        {
+          "key": "title",
+          "type": "text"
+        },
+        {
+          "key": "intro",
+          "type": "text"
+        },
+        {
+          "key": "id",
+          "type": "text"
+        },
+        {
+          "key": "slug",
+          "type": "text"
+        },
+        {
+          "key": "publishedAt",
+          "type": "date"
+        },
+        {
+          "key": "updatedAt",
+          "type": "date"
+        },
+        {
+          "key": "createdAt",
+          "type": "date"
+        },
+        {
+          "key": "author",
+          "type": "text"
+        },
+        {
+          "key": "author_slug",
+          "type": "text"
+        },
+        {
+          "key": "author_bio",
+          "type": "text"
+        },
+        {
+          "key": "authors",
+          "type": "list"
+        },
+        {
+          "key": "locale",
+          "type": "text"
+        },
+        {
+          "key": "translationGroup",
+          "type": "text"
+        },
+        {
+          "key": "meta_title",
+          "type": "text"
+        },
+        {
+          "key": "meta_description",
+          "type": "text"
+        },
+        {
+          "key": "meta_image",
+          "type": "image"
+        },
+        {
+          "key": "publishedAt_text",
+          "type": "text"
+        },
+        {
+          "key": "updatedAt_text",
+          "type": "text"
+        },
+        {
+          "key": "createdAt_text",
+          "type": "text"
+        }
+      ],
+      "cmsSchema": {
+        "fields": {
+          "title": "string",
+          "intro": "text"
         },
         "taxonomies": []
       }
@@ -26296,28 +26590,52 @@
                   },
                   "children": [
                     {
-                      "tag": "h2",
-                      "classes": [
-                        "w-heading-xl"
-                      ],
-                      "text": "Choose How You Want To Host",
+                      "id": "loop-mwk8kj4e-736",
+                      "tag": "loop",
                       "attrs": {
-                        "builder-data-element": "heading"
+                        "builder-data-element": "loop"
                       },
-                      "name": "w heading xl",
-                      "id": "h2-mwj42k80-6546"
-                    },
-                    {
-                      "tag": "p",
-                      "classes": [
-                        "w-text-m"
+                      "children": [
+                        {
+                          "tag": "h2",
+                          "classes": [
+                            "w-heading-xl"
+                          ],
+                          "text": "{item.title}",
+                          "attrs": {
+                            "builder-data-element": "heading"
+                          },
+                          "name": "w heading xl",
+                          "id": "h2-mwj42k80-6546"
+                        },
+                        {
+                          "tag": "p",
+                          "classes": [
+                            "w-text-m"
+                          ],
+                          "text": "{item.intro}",
+                          "attrs": {
+                            "builder-data-element": "text"
+                          },
+                          "name": "w text m",
+                          "id": "p-mwj42k80-6547"
+                        }
                       ],
-                      "text": "From small startups to enterprises, PXpace is built to support your growth. Choose the plan that suits you best with affordable plans and pricing.",
-                      "attrs": {
-                        "builder-data-element": "text"
+                      "loop": {
+                        "source": "api",
+                        "api": "srcsectiontexts",
+                        "apiSlug": "emdash-section-texts",
+                        "itemName": "item",
+                        "where": {
+                          "slug": "plans"
+                        },
+                        "limit": 1,
+                        "sortDir": null,
+                        "collection": null
                       },
-                      "name": "w text m",
-                      "id": "p-mwj42k80-6547"
+                      "classes": [
+                        "w-plans__head-loop"
+                      ]
                     }
                   ],
                   "name": "head",
@@ -26334,92 +26652,90 @@
                   },
                   "children": [
                     {
-                      "id": "sr-inst-mwj42k80-6549",
-                      "tag": "CardPlan",
-                      "component": "cmp-card-plan",
-                      "props": {
-                        "image": "https://xcloud.host/_landing/pricing/pricing-xcloud.png",
-                        "title": "PXpace Hosting",
-                        "description": "Fully managed hosting for dynamic, high-traffic sites, with automated daily backups and easy scaling built to deliver high-performance websites.",
-                        "features": "<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Fully managed server setup</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Optimized hosting stack</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Daily automated backups</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free SSL and renewal</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Support from expert engineers</li>"
-                      },
+                      "id": "loop-mwk8kj4e-737",
+                      "tag": "loop",
                       "attrs": {
-                        "builder-data-element": "component"
+                        "builder-data-element": "loop"
                       },
                       "children": [
                         {
-                          "id": "sr-inst-mwj42k80-6550",
-                          "tag": "ButtonPrimary",
-                          "component": "cmp-button-primary",
+                          "tag": "div",
+                          "component": "cmp-card-plan",
                           "props": {
-                            "link": "#",
-                            "variant": "w-button-primary--block",
-                            "label": "View the Plans"
+                            "image": "{item.image}",
+                            "title": "{item.title}",
+                            "description": "{item.description}",
+                            "features": "{item.features}"
                           },
-                          "attrs": {
-                            "builder-data-element": "component"
-                          }
+                          "id": "div-mwk8knem-738",
+                          "children": [
+                            {
+                              "id": "condition-mwk8ksib-739",
+                              "tag": "condition",
+                              "attrs": {
+                                "builder-data-element": "condition"
+                              },
+                              "children": [
+                                {
+                                  "tag": "div",
+                                  "component": "cmp-button-primary",
+                                  "props": {
+                                    "link": "{item.button_link}",
+                                    "variant": "w-button-primary--block",
+                                    "label": "{item.button_label}"
+                                  },
+                                  "id": "div-mwk8kslt-741"
+                                }
+                              ],
+                              "cond": {
+                                "mode": "custom",
+                                "expr": "Boolean(item.featured)"
+                              },
+                              "classes": [
+                                "w-plans__cta-featured"
+                              ]
+                            },
+                            {
+                              "id": "condition-mwk8ksib-740",
+                              "tag": "condition",
+                              "attrs": {
+                                "builder-data-element": "condition"
+                              },
+                              "children": [
+                                {
+                                  "tag": "div",
+                                  "component": "cmp-button-outline",
+                                  "props": {
+                                    "link": "{item.button_link}",
+                                    "variant": "w-button-outline--block",
+                                    "label": "{item.button_label}",
+                                    "showIcon": "true"
+                                  },
+                                  "id": "div-mwk8kslt-742"
+                                }
+                              ],
+                              "cond": {
+                                "mode": "custom",
+                                "expr": "!item.featured"
+                              },
+                              "classes": [
+                                "w-plans__cta-default"
+                              ]
+                            }
+                          ]
                         }
-                      ]
-                    },
-                    {
-                      "id": "sr-inst-mwj42k80-6551",
-                      "tag": "CardPlan",
-                      "component": "cmp-card-plan",
-                      "props": {
-                        "image": "https://xcloud.host/_landing/pricing/pricing-selfmanaged.png",
-                        "title": "Self-Managed Hosting",
-                        "description": "Bring your own server and connect it to the PXpace panel for easier server management, with every feature you need available under a single, unified dashboard.",
-                        "features": "<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Bring your own server, manage it from one dashboard</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free: 1 server and 10 sites included</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Connect any VPS to the PXpace panel</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Every feature under one dashboard</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Unlimited apps and databases</li>"
+                      ],
+                      "loop": {
+                        "source": "api",
+                        "api": "srcplans",
+                        "apiSlug": "emdash-plans",
+                        "itemName": "item",
+                        "sortBy": "position",
+                        "sortDir": "asc",
+                        "collection": null
                       },
-                      "attrs": {
-                        "builder-data-element": "component"
-                      },
-                      "children": [
-                        {
-                          "id": "sr-inst-mwj42k80-6552",
-                          "tag": "ButtonOutline",
-                          "component": "cmp-button-outline",
-                          "props": {
-                            "link": "#",
-                            "variant": "w-button-outline--block",
-                            "label": "Connect Your Own Server",
-                            "showIcon": "true"
-                          },
-                          "attrs": {
-                            "builder-data-element": "component"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "id": "sr-inst-mwj42k80-6553",
-                      "tag": "CardPlan",
-                      "component": "cmp-card-plan",
-                      "props": {
-                        "image": "https://xcloud.host/_landing/pricing/pricing-managedbilling.png",
-                        "title": "Reseller Hosting",
-                        "description": "Sell hosting under your own brand. Resell on PXpace servers or bring your own, with full white-label control, built-in client management, and billing handled for you.",
-                        "features": "<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Resell on PXpace servers or your own</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>100% white-label — your domain and logo</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Built-in client and account management</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Create custom packages and set your prices</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Automated billing and invoicing</li>"
-                      },
-                      "attrs": {
-                        "builder-data-element": "component"
-                      },
-                      "children": [
-                        {
-                          "id": "sr-inst-mwj42k80-6554",
-                          "tag": "ButtonOutline",
-                          "component": "cmp-button-outline",
-                          "props": {
-                            "link": "#",
-                            "variant": "w-button-outline--block",
-                            "label": "Start Reselling",
-                            "showIcon": "true"
-                          },
-                          "attrs": {
-                            "builder-data-element": "component"
-                          }
-                        }
+                      "classes": [
+                        "w-plans__loop"
                       ]
                     }
                   ],
@@ -30828,7 +31144,7 @@
     "src/components/CardFeature.astro": "ac48eb7cf50e99e5",
     "src/components/CardGuarantee.astro": "a93532f665e920a4",
     "src/components/CardHosting.astro": "c6d5224b782757ad",
-    "src/components/CardPlan.astro": "cebe72935d8ca716",
+    "src/components/CardPlan.astro": "acc82e0ca75b18c5",
     "src/components/CardSecurity.astro": "63252ce94eca4f6c",
     "src/components/CardTestimonial.astro": "080779e6cc0e28f5",
     "src/components/CardWay.astro": "9c44588d0954bd5a",
@@ -30874,7 +31190,9 @@
     "src/components/TileStack.astro": "20bb52bd813559f4",
     "src/components/Toggle.astro": "23dd60abc1a3aa4b",
     "src/data/sources/emdash-pages.js": "bc9ca533e7dcad7e",
+    "src/data/sources/emdash-plans.js": "769b55cc1c900d23",
     "src/data/sources/emdash-posts.js": "b0df1c805f4ebee3",
+    "src/data/sources/emdash-section-texts.js": "7e338403dd0c1327",
     "src/data/sources/emdash-testimonials.js": "743ea415b5fcc2b6",
     "src/layouts/DesignSystemLayout.astro": "9ec12ccba12a299e",
     "src/layouts/DocsLayout.astro": "120797fb50d8cfbe",
@@ -30883,7 +31201,7 @@
     "src/pages/design-system.astro": "a1c9e9a8b5692f9d",
     "src/pages/docs.astro": "e28b8d13d9f44260",
     "src/pages/docs/quick-start.astro": "37250233957eb97e",
-    "src/pages/index.astro": "39688b348b779f12",
+    "src/pages/index.astro": "dc9f8f6a2e6875fa",
     "src/styles/generated/framework.css": "6abcdf8a40adf4b3",
     "src/styles/generated/global.css": "373657615fe86c58",
     "src/styles/generated/pages/design-system.css": "c760b37475fc4f9f",

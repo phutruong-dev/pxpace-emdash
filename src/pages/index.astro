@@ -27,13 +27,20 @@ import '../styles/generated/framework.css';
 import '../styles/generated/global.css';
 import '../styles/generated/templates/tpl-mwj2rj4d-1.css';
 import '../styles/generated/pages/index.css';
+import { emdashSectionTexts } from "../data/sources/emdash-section-texts.js";
+import { emdashPlans } from "../data/sources/emdash-plans.js";
 import { emdashTestimonials } from "../data/sources/emdash-testimonials.js";
-let emdashtestimonialsEntries: Record<string, any>[] = [...(await emdashTestimonials())];
-emdashtestimonialsEntries = emdashtestimonialsEntries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "1");
-let emdashtestimonials2Entries: Record<string, any>[] = [...(await emdashTestimonials())];
-emdashtestimonials2Entries = emdashtestimonials2Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "2");
+let emdashsectiontextsEntries: Record<string, any>[] = [...(await emdashSectionTexts())];
+emdashsectiontextsEntries = emdashsectiontextsEntries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.slug ?? e.slug)) === "plans");
+emdashsectiontextsEntries = emdashsectiontextsEntries.slice(0, 1);
+let emdashplans2Entries: Record<string, any>[] = [...(await emdashPlans())];
+emdashplans2Entries = emdashplans2Entries.slice().sort((a, b) => 1 * ((x, y) => typeof x === 'number' && typeof y === 'number' ? x - y : ((x) => x instanceof Date ? x.toISOString() : String(x ?? ''))(x).localeCompare(((x) => x instanceof Date ? x.toISOString() : String(x ?? ''))(y)))((a.data?.position ?? a.position), (b.data?.position ?? b.position)));
 let emdashtestimonials3Entries: Record<string, any>[] = [...(await emdashTestimonials())];
-emdashtestimonials3Entries = emdashtestimonials3Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "3");
+emdashtestimonials3Entries = emdashtestimonials3Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "1");
+let emdashtestimonials4Entries: Record<string, any>[] = [...(await emdashTestimonials())];
+emdashtestimonials4Entries = emdashtestimonials4Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "2");
+let emdashtestimonials5Entries: Record<string, any>[] = [...(await emdashTestimonials())];
+emdashtestimonials5Entries = emdashtestimonials5Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "3");
 ---
 <Base title="Home" siteName="PXpace" lang="en">
   <Fragment slot="head">
@@ -123,19 +130,28 @@ emdashtestimonials3Entries = emdashtestimonials3Entries.filter((e) => ((x) => x 
     <section class="w-plans" builder-data-element="section" data-surface="default" data-brx="section">
       <div class="w-plans__container" builder-data-element="container" data-animate="" data-brx="container">
         <header class="w-plans__head" builder-data-element="flex" data-brx="block">
-          <h2 class="w-heading-xl" builder-data-element="heading">Choose How You Want To Host</h2>
-          <p class="w-text-m" builder-data-element="text">From small startups to enterprises, PXpace is built to support your growth. Choose the plan that suits you best with affordable plans and pricing.</p>
+          {emdashsectiontextsEntries.map((item) => (
+            <>
+              <h2 class="w-heading-xl" builder-data-element="heading">{item.title}</h2>
+              <p class="w-text-m" builder-data-element="text">{item.intro}</p>
+            </>
+          ))}
         </header>
         <div class="w-plans__cards" builder-data-element="div" data-brx="div">
-          <CardPlan image="https://xcloud.host/_landing/pricing/pricing-xcloud.png" title="PXpace Hosting" description="Fully managed hosting for dynamic, high-traffic sites, with automated daily backups and easy scaling built to deliver high-performance websites." features={"<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Fully managed server setup</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Optimized hosting stack</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Daily automated backups</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free SSL and renewal</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Support from expert engineers</li>"}>
-            <ButtonPrimary link="#" variant="w-button-primary--block" label="View the Plans" />
-          </CardPlan>
-          <CardPlan image="https://xcloud.host/_landing/pricing/pricing-selfmanaged.png" title="Self-Managed Hosting" description="Bring your own server and connect it to the PXpace panel for easier server management, with every feature you need available under a single, unified dashboard." features={"<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Bring your own server, manage it from one dashboard</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Free: 1 server and 10 sites included</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Connect any VPS to the PXpace panel</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Every feature under one dashboard</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Unlimited apps and databases</li>"}>
-            <ButtonOutline link="#" variant="w-button-outline--block" label="Connect Your Own Server" showIcon />
-          </CardPlan>
-          <CardPlan image="https://xcloud.host/_landing/pricing/pricing-managedbilling.png" title="Reseller Hosting" description="Sell hosting under your own brand. Resell on PXpace servers or bring your own, with full white-label control, built-in client management, and billing handled for you." features={"<li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Resell on PXpace servers or your own</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>100% white-label — your domain and logo</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Built-in client and account management</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Create custom packages and set your prices</li><li class=\"w-card-plan__feature\"><svg aria-hidden=\"true\" class=\"w-card-plan__check\" viewbox=\"0 0 16 16\"><path d=\"M3.33 8l3.33 3.33 6.67-6.66\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.33\"></path></svg>Automated billing and invoicing</li>"}>
-            <ButtonOutline link="#" variant="w-button-outline--block" label="Start Reselling" showIcon />
-          </CardPlan>
+          {emdashplans2Entries.map((item) => (
+            <CardPlan image={item.image} title={item.title} description={item.description} features={item.features}>
+              {(Boolean(item.featured)) && (
+                <>
+                  <ButtonPrimary link={item.button_link} variant="w-button-primary--block" label={item.button_label} />
+                </>
+              )}
+              {(!item.featured) && (
+                <>
+                  <ButtonOutline link={item.button_link} variant="w-button-outline--block" label={item.button_label} showIcon />
+                </>
+              )}
+            </CardPlan>
+          ))}
         </div>
       </div>
     </section>
@@ -492,21 +508,21 @@ emdashtestimonials3Entries = emdashtestimonials3Entries.filter((e) => ((x) => x 
         <div class="w-testimonials__wall" builder-data-element="div" data-brx="div">
           <div class="w-testimonials__column" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track" builder-data-element="div" data-marquee="vertical">
-              {emdashtestimonialsEntries.map((item) => (
+              {emdashtestimonials3Entries.map((item) => (
                 <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
               ))}
             </div>
           </div>
           <div class="w-testimonials__column w-testimonials__column--middle" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track w-testimonials__track--reverse" builder-data-element="div" data-marquee="vertical">
-              {emdashtestimonials2Entries.map((item) => (
+              {emdashtestimonials4Entries.map((item) => (
                 <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
               ))}
             </div>
           </div>
           <div class="w-testimonials__column w-testimonials__column--last" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track w-testimonials__track--slow" builder-data-element="div" data-marquee="vertical">
-              {emdashtestimonials3Entries.map((item) => (
+              {emdashtestimonials5Entries.map((item) => (
                 <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
               ))}
             </div>
