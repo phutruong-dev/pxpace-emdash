@@ -1,6 +1,6 @@
 {
   "format": "sitereal",
-  "version": 2,
+  "version": 4,
   "site": {
     "name": "PXpace",
     "lang": "en",
@@ -14710,7 +14710,59 @@
     "collections": [],
     "taxonomies": []
   },
-  "sources": [],
+  "sources": [
+    {
+      "id": "src9cljmwc",
+      "name": "EmDash posts",
+      "slug": "emdash-posts",
+      "kind": "emdash",
+      "url": "https://pxpace-cms.manhphutruong.workers.dev/",
+      "cmsType": "posts",
+      "auth": "bearer",
+      "secretVar": "EMDASH_TOKEN",
+      "offline": "cache",
+      "fields": [],
+      "cmsSchema": {
+        "pattern": "/posts/{slug}",
+        "fields": {
+          "title": "string",
+          "featured_image": "image",
+          "content": "portableText",
+          "excerpt": "text"
+        },
+        "taxonomies": [
+          {
+            "name": "category",
+            "label": "Categories"
+          },
+          {
+            "name": "tag",
+            "label": "Tags"
+          }
+        ]
+      }
+    },
+    {
+      "id": "src8guo3qj",
+      "name": "Pages",
+      "slug": "emdash-pages",
+      "kind": "emdash",
+      "url": "https://pxpace-cms.manhphutruong.workers.dev/",
+      "cmsType": "pages",
+      "auth": "bearer",
+      "secretVar": "EMDASH_TOKEN",
+      "offline": "cache",
+      "fields": [],
+      "cmsSchema": {
+        "pattern": "/{slug}",
+        "fields": {
+          "title": "string",
+          "content": "portableText"
+        },
+        "taxonomies": []
+      }
+    }
+  ],
   "media": {
     "collections": [],
     "assets": {}
@@ -30772,6 +30824,8 @@
     "src/components/TileIntegration.astro": "9067d1d16c7ec2c7",
     "src/components/TileStack.astro": "20bb52bd813559f4",
     "src/components/Toggle.astro": "23dd60abc1a3aa4b",
+    "src/data/sources/emdash-pages.js": "bc9ca533e7dcad7e",
+    "src/data/sources/emdash-posts.js": "b0df1c805f4ebee3",
     "src/layouts/DesignSystemLayout.astro": "9ec12ccba12a299e",
     "src/layouts/DocsLayout.astro": "120797fb50d8cfbe",
     "src/layouts/MainLayout.astro": "d10d9e64681ec097",
