@@ -14761,6 +14761,125 @@
         },
         "taxonomies": []
       }
+    },
+    {
+      "name": "Testimonials",
+      "slug": "emdash-testimonials",
+      "kind": "emdash",
+      "url": "https://pxpace-cms.manhphutruong.workers.dev/",
+      "cmsType": "testimonials",
+      "auth": "bearer",
+      "secretVar": "EMDASH_TOKEN",
+      "offline": "cache",
+      "id": "srctestimonials",
+      "cmsQuery": "orderBy=createdAt&order=asc",
+      "fields": [
+        {
+          "key": "title",
+          "type": "text"
+        },
+        {
+          "key": "quote",
+          "type": "text"
+        },
+        {
+          "key": "avatar",
+          "type": "image"
+        },
+        {
+          "key": "avatar_alt",
+          "type": "text"
+        },
+        {
+          "key": "avatar_width",
+          "type": "number"
+        },
+        {
+          "key": "avatar_height",
+          "type": "number"
+        },
+        {
+          "key": "column",
+          "type": "number"
+        },
+        {
+          "key": "id",
+          "type": "text"
+        },
+        {
+          "key": "slug",
+          "type": "text"
+        },
+        {
+          "key": "publishedAt",
+          "type": "date"
+        },
+        {
+          "key": "updatedAt",
+          "type": "date"
+        },
+        {
+          "key": "createdAt",
+          "type": "date"
+        },
+        {
+          "key": "author",
+          "type": "text"
+        },
+        {
+          "key": "author_slug",
+          "type": "text"
+        },
+        {
+          "key": "author_bio",
+          "type": "text"
+        },
+        {
+          "key": "authors",
+          "type": "list"
+        },
+        {
+          "key": "locale",
+          "type": "text"
+        },
+        {
+          "key": "translationGroup",
+          "type": "text"
+        },
+        {
+          "key": "meta_title",
+          "type": "text"
+        },
+        {
+          "key": "meta_description",
+          "type": "text"
+        },
+        {
+          "key": "meta_image",
+          "type": "image"
+        },
+        {
+          "key": "publishedAt_text",
+          "type": "text"
+        },
+        {
+          "key": "updatedAt_text",
+          "type": "text"
+        },
+        {
+          "key": "createdAt_text",
+          "type": "text"
+        }
+      ],
+      "cmsSchema": {
+        "fields": {
+          "title": "string",
+          "quote": "text",
+          "avatar": "image",
+          "column": "integer"
+        },
+        "taxonomies": []
+      }
     }
   ],
   "media": {
@@ -29578,56 +29697,37 @@
                           },
                           "children": [
                             {
-                              "id": "sr-inst-mwj42k81-6815",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "I've tried many paid platforms and the platform that works best for WordPress is SpinupWP and I believe that PXpace can reach and surpass that development, its roadmap is promising.\n\nCongratulations to the PXpace team, I hope they become the leading platform in the segment.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/brian.webp",
-                                "name": "Brian Geovanny"
-                              },
+                              "id": "loop-mwk7b1b5-732",
+                              "tag": "loop",
                               "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6816",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "I've been with runcloud for the last 3 years. However, after trying PXpace for the last month, I'm switching over. They are on a roll with their setup.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/pineda.webp",
-                                "name": "Kevin Pineda"
+                                "builder-data-element": "loop"
                               },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6817",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "There are no team mates nor API limits with PXpace!\n\n#PXpace #wordpress #hosting",
-                                "avatar": "https://xcloud.host/_landing/testimonials/leo.webp",
-                                "name": "Leo Koo"
+                              "children": [
+                                {
+                                  "tag": "div",
+                                  "component": "cmp-card-testimonial",
+                                  "props": {
+                                    "quote": "{item.quote}",
+                                    "avatar": "{item.avatar}",
+                                    "name": "{item.title}"
+                                  },
+                                  "id": "div-mwk7b88i-733"
+                                }
+                              ],
+                              "loop": {
+                                "source": "api",
+                                "api": "srctestimonials",
+                                "apiSlug": "emdash-testimonials",
+                                "itemName": "item",
+                                "where": {
+                                  "column": "1"
+                                },
+                                "sortDir": null,
+                                "collection": null
                               },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6818",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "How Cloud Nine Web Elevated Client Experience While Streamlining Hosting Operations using PXpace",
-                                "avatar": "https://xcloud.host/_landing/testimonials/ed.webp",
-                                "name": "Ed Ellingham"
-                              },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
+                              "classes": [
+                                "w-testimonials__loop"
+                              ]
                             }
                           ],
                           "name": "track",
@@ -29660,56 +29760,37 @@
                           },
                           "children": [
                             {
-                              "id": "sr-inst-mwj42k81-6821",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "So far my experience has been smooth like silk. I didn't imagine that configuring and managing a VPS would be so easy. As of today, I have deployed 8 sites.\n\nI'm sure that within a few months, PXpace will become the leader in its segment.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/massimo.webp",
-                                "name": "Massimo Villa"
-                              },
+                              "id": "loop-mwk7bgr2-734",
+                              "tag": "loop",
                               "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6822",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "Came from cloudways then to runcloud then to PXpace. Looks like I'm staying here.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/gerson.webp",
-                                "name": "Gerson El"
+                                "builder-data-element": "loop"
                               },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6823",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "I've recently taken all of my Vultr-hosted sites and gotten rid of cPanel for them to substitute it with PXpace.\n\nI have to say, I'm really impressed with PXpace so far!",
-                                "avatar": "https://xcloud.host/_landing/testimonials/tony.webp",
-                                "name": "Tony Lewis"
+                              "children": [
+                                {
+                                  "tag": "div",
+                                  "component": "cmp-card-testimonial",
+                                  "props": {
+                                    "quote": "{item.quote}",
+                                    "avatar": "{item.avatar}",
+                                    "name": "{item.title}"
+                                  },
+                                  "id": "div-mwk7bgv1-735"
+                                }
+                              ],
+                              "loop": {
+                                "source": "api",
+                                "api": "srctestimonials",
+                                "apiSlug": "emdash-testimonials",
+                                "itemName": "item",
+                                "where": {
+                                  "column": "2"
+                                },
+                                "sortDir": null,
+                                "collection": null
                               },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6824",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "I came from Cloudways and won't go back. Highly impressed with PXpace. Glad I gave them a chance.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/dan.webp",
-                                "name": "Dan Spinoza"
-                              },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
+                              "classes": [
+                                "w-testimonials__loop"
+                              ]
                             }
                           ],
                           "name": "track",
@@ -29742,69 +29823,37 @@
                           },
                           "children": [
                             {
-                              "id": "sr-inst-mwj42k81-6827",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "Successful migrated 5 sites on a single server. PXpace migration tool worked great.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/rahil.webp",
-                                "name": "Rahil Maknojia"
-                              },
+                              "id": "loop-mwk7bh0e-736",
+                              "tag": "loop",
                               "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6828",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "Came from runcloud. Tried PXpace and never came back.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/fanega.webp",
-                                "name": "Karl Fanega"
+                                "builder-data-element": "loop"
                               },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6829",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "How Advanced Web Strategies Saved Over $2,000 & Recovered 56 Hours per Month Managing 70+ Client Websites",
-                                "avatar": "https://xcloud.host/_landing/testimonials/gary.webp",
-                                "name": "Gary Moody"
+                              "children": [
+                                {
+                                  "tag": "div",
+                                  "component": "cmp-card-testimonial",
+                                  "props": {
+                                    "quote": "{item.quote}",
+                                    "avatar": "{item.avatar}",
+                                    "name": "{item.title}"
+                                  },
+                                  "id": "div-mwk7bh4y-737"
+                                }
+                              ],
+                              "loop": {
+                                "source": "api",
+                                "api": "srctestimonials",
+                                "apiSlug": "emdash-testimonials",
+                                "itemName": "item",
+                                "where": {
+                                  "column": "3"
+                                },
+                                "sortDir": null,
+                                "collection": null
                               },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6830",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "PXpace gave me what no other hosting platform could: the flexibility of a VPS with the convenience of managed WordPress.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/jorge.webp",
-                                "name": "Jorge de los Reyes Martínez"
-                              },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
-                            },
-                            {
-                              "id": "sr-inst-mwj42k81-6831",
-                              "tag": "CardTestimonial",
-                              "component": "cmp-card-testimonial",
-                              "props": {
-                                "quote": "I use Server Avatar and PXpace and I'll sooner use PXpace than Server Avatar personally.",
-                                "avatar": "https://xcloud.host/_landing/testimonials/pagano.webp",
-                                "name": "Jay Pagano"
-                              },
-                              "attrs": {
-                                "builder-data-element": "component"
-                              }
+                              "classes": [
+                                "w-testimonials__loop"
+                              ]
                             }
                           ],
                           "name": "track",
@@ -30826,6 +30875,7 @@
     "src/components/Toggle.astro": "23dd60abc1a3aa4b",
     "src/data/sources/emdash-pages.js": "bc9ca533e7dcad7e",
     "src/data/sources/emdash-posts.js": "b0df1c805f4ebee3",
+    "src/data/sources/emdash-testimonials.js": "743ea415b5fcc2b6",
     "src/layouts/DesignSystemLayout.astro": "9ec12ccba12a299e",
     "src/layouts/DocsLayout.astro": "120797fb50d8cfbe",
     "src/layouts/MainLayout.astro": "d10d9e64681ec097",
@@ -30833,7 +30883,7 @@
     "src/pages/design-system.astro": "a1c9e9a8b5692f9d",
     "src/pages/docs.astro": "e28b8d13d9f44260",
     "src/pages/docs/quick-start.astro": "37250233957eb97e",
-    "src/pages/index.astro": "15d0f4f68e62ae38",
+    "src/pages/index.astro": "39688b348b779f12",
     "src/styles/generated/framework.css": "6abcdf8a40adf4b3",
     "src/styles/generated/global.css": "373657615fe86c58",
     "src/styles/generated/pages/design-system.css": "c760b37475fc4f9f",

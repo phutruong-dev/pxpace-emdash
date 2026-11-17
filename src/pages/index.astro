@@ -27,6 +27,13 @@ import '../styles/generated/framework.css';
 import '../styles/generated/global.css';
 import '../styles/generated/templates/tpl-mwj2rj4d-1.css';
 import '../styles/generated/pages/index.css';
+import { emdashTestimonials } from "../data/sources/emdash-testimonials.js";
+let emdashtestimonialsEntries: Record<string, any>[] = [...(await emdashTestimonials())];
+emdashtestimonialsEntries = emdashtestimonialsEntries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "1");
+let emdashtestimonials2Entries: Record<string, any>[] = [...(await emdashTestimonials())];
+emdashtestimonials2Entries = emdashtestimonials2Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "2");
+let emdashtestimonials3Entries: Record<string, any>[] = [...(await emdashTestimonials())];
+emdashtestimonials3Entries = emdashtestimonials3Entries.filter((e) => ((x) => x instanceof Date ? x.toISOString().slice(0, 10) : String(x ?? ''))((e.data?.column ?? e.column)) === "3");
 ---
 <Base title="Home" siteName="PXpace" lang="en">
   <Fragment slot="head">
@@ -485,35 +492,23 @@ import '../styles/generated/pages/index.css';
         <div class="w-testimonials__wall" builder-data-element="div" data-brx="div">
           <div class="w-testimonials__column" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track" builder-data-element="div" data-marquee="vertical">
-              <CardTestimonial quote="I've tried many paid platforms and the platform that works best for WordPress is SpinupWP and I believe that PXpace can reach and surpass that development, its roadmap is promising.
-
-Congratulations to the PXpace team, I hope they become the leading platform in the segment." avatar="https://xcloud.host/_landing/testimonials/brian.webp" name="Brian Geovanny" />
-              <CardTestimonial quote="I've been with runcloud for the last 3 years. However, after trying PXpace for the last month, I'm switching over. They are on a roll with their setup." avatar="https://xcloud.host/_landing/testimonials/pineda.webp" name="Kevin Pineda" />
-              <CardTestimonial quote="There are no team mates nor API limits with PXpace!
-
-#PXpace #wordpress #hosting" avatar="https://xcloud.host/_landing/testimonials/leo.webp" name="Leo Koo" />
-              <CardTestimonial quote="How Cloud Nine Web Elevated Client Experience While Streamlining Hosting Operations using PXpace" avatar="https://xcloud.host/_landing/testimonials/ed.webp" name="Ed Ellingham" />
+              {emdashtestimonialsEntries.map((item) => (
+                <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
+              ))}
             </div>
           </div>
           <div class="w-testimonials__column w-testimonials__column--middle" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track w-testimonials__track--reverse" builder-data-element="div" data-marquee="vertical">
-              <CardTestimonial quote="So far my experience has been smooth like silk. I didn't imagine that configuring and managing a VPS would be so easy. As of today, I have deployed 8 sites.
-
-I'm sure that within a few months, PXpace will become the leader in its segment." avatar="https://xcloud.host/_landing/testimonials/massimo.webp" name="Massimo Villa" />
-              <CardTestimonial quote="Came from cloudways then to runcloud then to PXpace. Looks like I'm staying here." avatar="https://xcloud.host/_landing/testimonials/gerson.webp" name="Gerson El" />
-              <CardTestimonial quote="I've recently taken all of my Vultr-hosted sites and gotten rid of cPanel for them to substitute it with PXpace.
-
-I have to say, I'm really impressed with PXpace so far!" avatar="https://xcloud.host/_landing/testimonials/tony.webp" name="Tony Lewis" />
-              <CardTestimonial quote="I came from Cloudways and won't go back. Highly impressed with PXpace. Glad I gave them a chance." avatar="https://xcloud.host/_landing/testimonials/dan.webp" name="Dan Spinoza" />
+              {emdashtestimonials2Entries.map((item) => (
+                <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
+              ))}
             </div>
           </div>
           <div class="w-testimonials__column w-testimonials__column--last" builder-data-element="div" data-brx="div">
             <div class="w-testimonials__track w-testimonials__track--slow" builder-data-element="div" data-marquee="vertical">
-              <CardTestimonial quote="Successful migrated 5 sites on a single server. PXpace migration tool worked great." avatar="https://xcloud.host/_landing/testimonials/rahil.webp" name="Rahil Maknojia" />
-              <CardTestimonial quote="Came from runcloud. Tried PXpace and never came back." avatar="https://xcloud.host/_landing/testimonials/fanega.webp" name="Karl Fanega" />
-              <CardTestimonial quote="How Advanced Web Strategies Saved Over $2,000 & Recovered 56 Hours per Month Managing 70+ Client Websites" avatar="https://xcloud.host/_landing/testimonials/gary.webp" name="Gary Moody" />
-              <CardTestimonial quote="PXpace gave me what no other hosting platform could: the flexibility of a VPS with the convenience of managed WordPress." avatar="https://xcloud.host/_landing/testimonials/jorge.webp" name="Jorge de los Reyes Martínez" />
-              <CardTestimonial quote="I use Server Avatar and PXpace and I'll sooner use PXpace than Server Avatar personally." avatar="https://xcloud.host/_landing/testimonials/pagano.webp" name="Jay Pagano" />
+              {emdashtestimonials3Entries.map((item) => (
+                <CardTestimonial quote={item.quote} avatar={item.avatar} name={item.title} />
+              ))}
             </div>
           </div>
         </div>
